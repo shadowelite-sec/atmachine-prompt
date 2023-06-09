@@ -93,12 +93,15 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 zstyle ':vcs_info:*' check-for-changes true
 # zstyle ':vcs_info:git:*' formats " %r/%S %b %m%u%c "
 zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[red]%}%m%u%c%{$fg[yellow]%}%{$fg[magenta]%} %b%{$fg[blue]%})"
-
+blink=$(tput setaf 6 blink)
+end=$(tput sgr0)
 # format our main prompt for hostname current folder, and permissions.
 # PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[red]%}@%{$fg[white]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%c%{$reset_color%}"
-PROMPT="%B%{$fg[blue]%}%{$fg[white]%}%n%{$fg[red]%}@%{$fg[white]%}%m%{$fg[blue]%} in %{$fg[yellow]%}%c%(?:%{$fg_bold"$(tput setaf 5 blink)"%}
-$ :%{$fg_bold[red]%}
-󱓻 )%{$reset_color%}"
+PROMPT="%B%{$fg[white]%}┌─[%{$fg[blue]%}%{$fg[white]%}%n%{$fg[red]%}@%{$fg[white]%}%m]%{$fg[blue]%}-%B%{$fg[white]%}[%{$fg[yellow]%}%c%B%{$fg[white]%}]%(?:
+%{$fg[white]%}]
+└─%{$fg[white]%}[%{$blink%}$%{$end%}%{$fg[white]%}]:
+%{$fg[white]%}]
+└─%{$fg[white]%}[%{$blink$fg[red]%}x%{$end%}%{$fg[white]%}])%{$reset_color%}"
 
 # PROMPT="%{$fg[green]%}%n@%m %~ %{$reset_color%}%#> "
 PROMPT+="\$vcs_info_msg_0_ "
