@@ -7,7 +7,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 # nvidia
-export __GLX_VENDOR_LIBRARY_NAME=nvidia glxinfo | grep 'OpenGL renderer string'
+#export __GLX_VENDOR_LIBRARY_NAME=nvidia glxinfo | grep 'OpenGL renderer string'
 
 # alias
 alias icat="kitty +kitten icat"
@@ -97,11 +97,15 @@ blink=$(tput setaf 6 blink)
 end=$(tput sgr0)
 # format our main prompt for hostname current folder, and permissions.
 # PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[red]%}@%{$fg[white]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%c%{$reset_color%}"
-PROMPT="%B%{$fg[white]%}┌─[%{$fg[blue]%}%{$fg[white]%}%n%{$fg[red]%}@%{$fg[white]%}%m]%{$fg[blue]%}-%B%{$fg[white]%}[%{$fg[yellow]%}%c%B%{$fg[white]%}]%(?:
-%{$fg[white]%}]
-└─%{$fg[white]%}[%{$blink%}$%{$end%}%{$fg[white]%}]:
-%{$fg[white]%}]
-└─%{$fg[white]%}[%{$blink$fg[red]%}x%{$end%}%{$fg[white]%}])%{$reset_color%}"
+#PROMPT="%B%{$fg[white]%}┌─[%{$fg[blue]%}%{$fg[white]%}%n%{$fg[red]%}@%{$fg[white]%}%m]%{$fg[blue]%}-%B%{$fg[white]%}[%{$fg[yellow]%}%c%B%{$fg[white]%}]%(?:
+#%{$fg[white]%}]
+#└─%{$fg[white]%}[%{$blink%}$%{$end%}%{$fg[white]%}]:
+#%{$fg[white]%}]
+#└─%{$fg[white]%}[%{$blink$fg[red]%}x%{$end%}%{$fg[white]%}])%{$reset_color%}"
+
+PROMPT="%B%{$fg[white]%}┌─[%{$fg[green]%}%n%{$fg[red]%}@%{$fg[magenta]%}%m%{$fg[white]%}]%{$fg[blue]%}-%B%{$fg[white]%}[%{$fg[yellow]%}%c%B%{$fg[white]%}]%(?:
+└─%{$fg_bold[white]%}[%{$blink%}$%{$end%}%{$fg_bold[white]%}]:
+└─%{$fg_bold[white]%}[%{$blink$fg[red]%}X%{$end%}%{$fg_bold[white]%}])%{$reset_color%}"
 
 # PROMPT="%{$fg[green]%}%n@%m %~ %{$reset_color%}%#> "
 PROMPT+="\$vcs_info_msg_0_ "
