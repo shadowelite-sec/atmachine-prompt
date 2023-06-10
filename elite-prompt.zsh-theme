@@ -95,6 +95,7 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[red]%}%m%u%c%{$fg[yellow]%}%{$fg[magenta]%} %b%{$fg[blue]%})"
 blink=$(tput setaf 6 blink)
 end=$(tput sgr0)
+banner=$(printf '%s%s%s%s' "$(tput setaf 35)" "$(tput blink)" "S.E" "$(tput sgr0)")
 # format our main prompt for hostname current folder, and permissions.
 # PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[red]%}@%{$fg[white]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%c%{$reset_color%}"
 #PROMPT="%B%{$fg[white]%}┌─[%{$fg[blue]%}%{$fg[white]%}%n%{$fg[red]%}@%{$fg[white]%}%m]%{$fg[blue]%}-%B%{$fg[white]%}[%{$fg[yellow]%}%c%B%{$fg[white]%}]%(?:
@@ -103,8 +104,13 @@ end=$(tput sgr0)
 #%{$fg[white]%}]
 #└─%{$fg[white]%}[%{$blink$fg[red]%}x%{$end%}%{$fg[white]%}])%{$reset_color%}"
 
-PROMPT="%B%{$fg[white]%}┌─[%{$fg[green]%}%n%{$fg[red]%}@%{$fg[magenta]%}%m%{$fg[white]%}]%{$fg[blue]%}-%B%{$fg[white]%}[%{$fg[yellow]%}%c%B%{$fg[white]%}]%(?:
-└─%{$fg_bold[white]%}[%{$blink%}$%{$end%}%{$fg_bold[white]%}]:
+#PROMPT="%B%{$fg[white]%}┌─[%{$fg[green]%}%n%{$fg[red]%}@%{$fg[magenta]%}%m%{$fg[white]%}]%{$fg[blue]%}-%B%{$fg[white]%}[%{$fg[yellow]%}%c%B%{$fg[white]%}]%(?:
+#└─%{$fg_bold[white]%}[%{$end%}%{$blink%}$%{$end%}%{$fg_bold[white]%}]:
+#└─%{$fg_bold[white]%}[%{$blink$fg[red]%}X%{$end%}%{$fg_bold[white]%}])%{$reset_color%}"
+
+# with banner
+PROMPT="%B%{$fg[white]%}┌─[%{$fg[green]%}%n%{$fg[red]%}@%{$fg[magenta]%}%m%{$fg[white]%}]%{$fg[blue]%}-%B%{$fg[white]%}[%{$fg[yellow]%}%c%B%{$fg[white]%}] $banner %(?:
+└─%{$fg_bold[white]%}[%{$end%}%{$blink%}$%{$end%}%{$fg_bold[white]%}]:
 └─%{$fg_bold[white]%}[%{$blink$fg[red]%}X%{$end%}%{$fg_bold[white]%}])%{$reset_color%}"
 
 # PROMPT="%{$fg[green]%}%n@%m %~ %{$reset_color%}%#> "
